@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luis Alberto Urbina | GPTM</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* Variables de colores según tu paleta */
+:root {
+    --primary-color: #262aff; /* Turquesa */
+    --secondary-color: #1c117a; /* Azul Marino */
+    --bg-light: #f4f7f6;
+    --white: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--secondary-color) 40%, var(--primary-color) 80%); /* Fondo degradado usando la paleta */
+}
+
+/* TARJETA */
+.card {
+    background: var(--white);
+    width: 100%;
+    max-width: 380px;
+    padding: 40px 25px;
+    text-align: center;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* FOTO DE PERFIL CON ENCUADRE MEJORADO */
+.profile-container {
+    width: auto;
+    height: auto;
+ 
+   
+}
+
+.profile {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    /* object-position baja la foto para no cortar la cabeza, ajusta el % si es necesario */
+    object-position: center 10%;
+    display: block;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: var(--secondary-color); /* Nombre en azul marino */
+    margin: 0;
+}
+
+.role {
+    color: var(--primary-color); /* Cargo en turquesa */
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    margin-top: 5px;
+}
+
+.tagline {
+    color: #666;
+    font-size: 14px;
+    margin: 15px 0 30px;
+}
+
+/* CUADRÍCULA DE BOTONES REDONDOS */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px; /* Un poco más de espacio para botones redondos */
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.icon-btn {
+    background: var(--bg-light);
+    color: var(--secondary-color); /* Icono azul marino por defecto */
+    width: 100%;
+    aspect-ratio: 1; /* Mantiene el botón cuadrado antes de redondear */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Botones completamente redondos */
+    text-decoration: none;
+    font-size: 30px;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05);
+    box-sizing: border-box; /* Asegura que el borde no afecte el tamaño */
+}
+
+.icon-btn:hover {
+    background: var(--primary-color); /* Fondo turquesa al pasar el cursor */
+    color: white; /* Icono blanco al pasar el cursor */
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(27, 157, 170, 0.3); /* Sombra turquesa */
+}
+
+/* BOTÓN GUARDAR CONTACTO PREMIUM */
+.save-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 150px;
+    padding: 16px;
+    /* Degradado premium usando la paleta */
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 10px;
+    font-weight:600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 20px rgba(27, 157, 170, 0.3); /* Sombra turquesa */
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.save-contact:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 25px rgba(12, 49, 104, 0.4); /* Sombra azul marino más intensa */
+    filter: brightness(1.1);
+}
+
+.save-contact i {
+    font-size: 18px;
+}
+/* Redes Sociales */
+        .redes-sociales {
+            color: var(--secondary-color);
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+                      
+        }
+        .redes-sociales a {
+            color: var(--azul-marino);
+            transition: color 0.3s, transform 0.3s;
+            display: center;
+        }
+        .redes-sociales a:hover {
+            color: var(--turquesa);
+            transform: scale(1.15);
+        }
+/* FOOTER Y LOGO DEL DESARROLLADOR */
+.footer-container {
+    margin-top: auto; /* Empuja el footer al final si la tarjeta es alta */
+    padding-top: 30px;
+    width: 100%;
+}
+
+.copy-text {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.developer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #aaa;
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+.developer-logo:hover {
+    color: var(--primary-color); /* Color turquesa al pasar el cursor */
+}
+
+.developer-logo img {
+    height: 40px; /* Ajusta la altura de tu logo */
+    width: auto;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.developer-logo:hover img {
+    opacity: 1;
+    filter: drop-shadow(0 2px 4px rgba(27, 157, 170, 0.3)); /* Sombra turquesa al logo */
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <div class="profile-container">
+        <img src="foto.jpg" alt="Luis Alberto Urbina Division Manager" class="profile">
+    </div>
+
+    <h1>Luis Alberto Urbina</h1>
+    <p class="role">Division Manager</p>
+    <p class="tagline">Soluciones que impulsan a tu empresa</p>
+
+    <div class="icon-grid">
+        <a href="tel:+526641213804" class="icon-btn" title="Llamar">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="https://wa.me/526641213804" class="icon-btn" title="WhatsApp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="mailto:lu47662@globalpayments.com" class="icon-btn" title="Email">
+            <i class="fa-regular fa-envelope"></i>
+        </a>
+        <a href="https://www.hgpay.com.mx/" class="icon-btn" title="Página Web" target="_blank">
+            <i class="fa-solid fa-globe"></i>
+        </a>
+    </div>
+
+
+    <a href="contacto.vcf" class="save-contact" download>
+        <i class="fa-solid fa-file-arrow-down"></i>
+        GUARDAR CONTACTO
+    </a>
+
+    <div class="footer-container">
+             
+        <a href="https://www.urcolab.com.mx" class="developer-logo" target="_blank" title="Diseñado por: ">
+            <span> by:</span>
+                        <img src="logo_urco.png" alt="Logo Desarrollador">
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
